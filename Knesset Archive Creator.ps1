@@ -37,21 +37,6 @@ function Create-Summary-Document {
     }
 }
 
-
-# Create summary document function
-function Create-Summary-Document {
-    param([string]$Content, [string]$OutputPath)
-    try {
-        $WordDocument = New-WordDocument $OutputPath
-        Add-WordText -WordDocument $WordDocument -Text $Content
-        Save-WordDocument $WordDocument
-        Write-Host "Created Word document: $OutputPath"
-    } catch {
-        Handle-Error "Failed to create document at $OutputPath"
-    }
-}
-
-
 # Main Script
 foreach ($row in $excelData) {
 
